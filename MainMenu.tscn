@@ -1,0 +1,88 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://MainMenu.cs" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://icon2.png" type="Texture" id=3]
+
+[sub_resource type="AnimatedTexture" id=1]
+frames = 2
+frame_0/texture = ExtResource( 2 )
+frame_0/delay_sec = 0.5
+frame_1/texture = ExtResource( 3 )
+frame_1/delay_sec = 0.5
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+margin_right = 320.0
+margin_bottom = 180.0
+grow_horizontal = 0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer2"]
+margin_top = 28.0
+margin_right = 320.0
+margin_bottom = 42.0
+text = "GELu"
+align = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer2"]
+margin_top = 46.0
+margin_right = 320.0
+margin_bottom = 110.0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2/CenterContainer"]
+margin_left = 128.0
+margin_right = 192.0
+margin_bottom = 64.0
+size_flags_horizontal = 0
+texture = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2"]
+margin_top = 114.0
+margin_right = 320.0
+margin_bottom = 152.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer2/VBoxContainer"]
+margin_right = 320.0
+margin_bottom = 14.0
+text = "Play level"
+align = 1
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2/VBoxContainer"]
+margin_top = 18.0
+margin_right = 320.0
+margin_bottom = 38.0
+alignment = 1
+
+[node name="ButtonLev1" type="Button" parent="VBoxContainer2/VBoxContainer/HBoxContainer"]
+margin_left = 138.0
+margin_right = 158.0
+margin_bottom = 20.0
+text = "1"
+
+[node name="ButtonLev2" type="Button" parent="VBoxContainer2/VBoxContainer/HBoxContainer"]
+margin_left = 162.0
+margin_right = 182.0
+margin_bottom = 20.0
+text = "2"
+
+[connection signal="pressed" from="VBoxContainer2/VBoxContainer/HBoxContainer/ButtonLev1" to="." method="_on_ButtonLev1_pressed"]
+[connection signal="pressed" from="VBoxContainer2/VBoxContainer/HBoxContainer/ButtonLev2" to="." method="_on_ButtonLev2_pressed"]

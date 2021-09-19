@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://TileMap.tscn" type="PackedScene" id=2]
+[ext_resource path="res://DeadScreen.tscn" type="PackedScene" id=5]
+[ext_resource path="res://World.cs" type="Script" id=6]
+
+[node name="World3" type="Node2D"]
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 176.0, 176.0 ]
+}
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 48, 120 )
+
+[node name="TileMap" parent="." instance=ExtResource( 2 )]
+tile_data = PoolIntArray( 196607, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 262143, 0, 0, 196614, 0, 0, 327679, 0, 0, 262150, 0, 0, 393215, 0, 0, 327686, 0, 0, 458751, 0, 0, 393222, 0, 0, 524287, 0, 0, 458758, 0, 0, 589823, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 1245222, 2, 0 )
+
+[node name="DeadScreen" parent="." instance=ExtResource( 5 )]
+
+[node name="Label" type="Label" parent="."]
+margin_left = -61.0
+margin_top = 146.0
+margin_right = 158.0
+margin_bottom = 160.0
+text = "That's it, friend, thanks for playing!"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="GameOver" from="Player" to="." method="_on_Player_GameOver"]
